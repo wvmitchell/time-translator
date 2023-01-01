@@ -1,5 +1,7 @@
 # Time Translator
 
+## Description
+
 Your task in order to complete this challenge is to write a function which formats a duration, given as a number of seconds, in a human-friendly way.
 
 The function must accept a non-negative integer. If it is zero, it just returns "now". Otherwise, the duration is expressed as a combination of years, days, hours, minutes and seconds.
@@ -29,3 +31,22 @@ Different components have different unit of times. So there is not repeated unit
 A component will not appear at all if its value happens to be zero. Hence, 1 minute and 0 seconds is not valid, but it should be just 1 minute.
 
 A unit of time must be used "as much as possible". It means that the function should not return 61 seconds, but 1 minute and 1 second instead. Formally, the duration specified by of a component must not be greater than any valid more significant unit of time.
+
+## Using the tests
+
+Some example tests have already been created for you. You only need make them
+pass. You can get started by running the following commands:
+
+1) Clone the repo: `git clone git@github.com:wvmitchell/time-translator.git`
+2) Move in and install dependencies: `cd time-translator && npm i`
+3) Run the tests: `npm test`
+4) Alternatively, run the tests in watch mode: `npm run test:watch`
+5) Make the first test pass, then move on to the first skipped test
+
+## Important notes
+1) Other than unskipping tests, you do not need to alter the test file.
+
+## Submitting your solution
+* Open up a pull request to this repo using a forked copy of the repo to your
+  own Github account. Once you've done that, drop a message in the #frontend
+  channel linking us to your PR.

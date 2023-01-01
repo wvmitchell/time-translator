@@ -1,0 +1,22 @@
+{
+  "name": "time-translator",
+  "version": "1.0.0",
+  "description": "Your task in order to complete this challenge is to write a function which formats a duration, given as a number of seconds, in a human-friendly way.",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wvmitchell/time-translator.git"
+  },
+  "author": "wvmitchell@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wvmitchell/time-translator/issues"
+  },
+  "homepage": "https://github.com/wvmitchell/time-translator#readme",
+  "devDependencies": {
+    "jest": "^29.3.1"
+  }
+}

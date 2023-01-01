@@ -1,4 +1,4 @@
-const { translateTime } = require('../src/time_format.js')
+const { translateTime } = require('../src/translator.js')
 
 describe('translateTime', () => {
   test('it formats one second', () => {

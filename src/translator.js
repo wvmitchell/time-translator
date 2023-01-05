@@ -14,7 +14,6 @@ const translateTime = (startingSeconds) => {
     finalTime[unit] = Math.floor(remainingSeconds / conversions[unit]);
     
     if (unit === 'seconds') {
-      console.log(finalTime);
       return;
     }
 
@@ -27,14 +26,14 @@ const translateTime = (startingSeconds) => {
 
   calcTime(startingSeconds, 'years');
 
-  console.log(condenseTime(finalTime))
+  return formatString(condenseTime(finalTime));
 }
 
 const checkPlural = (num, unit) => {
   if (num === 1) {
-    return `${num} ${unit.slice(0, -1)}`
+    return `${num} ${unit.slice(0, -1)}`;
   } else {
-    return `${num} ${unit}`
+    return `${num} ${unit}`;
   }
 }
 
@@ -48,6 +47,23 @@ const condenseTime = (timeData) => {
   })
 
   return timeList;
+}
+
+const formatString = (list) => {
+  let finalPhrase = '';
+  
+  list.forEach(timePhrase => {
+    console.log(list.indexOf(timePhrase))
+    if (list.indexOf(timePhrase) === (list.length - 1)) {
+      finalPhrase += timePhrase;
+    } else if (list.indexOf(timePhrase) === list.length - 2) {
+      finalPhrase += `${timePhrase} and `;
+    } else {
+      finalPhrase += `${timePhrase}, `
+    }
+  });
+
+  return finalPhrase;
 }
 
 module.exports = { translateTime };

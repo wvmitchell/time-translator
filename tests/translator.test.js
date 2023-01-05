@@ -97,19 +97,19 @@ describe('translateTime', () => {
     expect(output).toBe(expected)
   })
 
-  test.skip('it correctly formats 0', () => {
+  test('it correctly formats 0', () => {
     const output = translateTime(0)
     const expected = "now"
     expect(output).toBe(expected)
   })
 
-  test.skip('it correctly formats the past', () => {
+  test('it correctly formats the past', () => {
     const output = translateTime(-4320120)
     const expected = "50 days and 2 minutes ago"
     expect(output).toBe(expected)
   })
 
-  test.skip('it correctly formats the past #2', () => {
+  test('it correctly formats the past #2', () => {
     const output = translateTime(-94874770)
     const expected = "3 years, 3 days, 2 hours, 6 minutes and 10 seconds ago"
     expect(output).toBe(expected)

@@ -1,4 +1,15 @@
 const translateTime = (startingSeconds) => {
+  let past = false;
+
+  if (startingSeconds === 0) {
+    return 'now';
+  }
+
+  if (startingSeconds < 0) {
+    startingSeconds = Math.abs(startingSeconds);
+    past = true;
+  }
+
   const conversions = {
     years: 31536000,
     days: 86400,
@@ -7,17 +18,17 @@ const translateTime = (startingSeconds) => {
     seconds: 1,
   } 
 
-  let finalTime = {};
+  let timeData = {};
 
   const calcTime = (remainingSeconds, unit) => {
     
-    finalTime[unit] = Math.floor(remainingSeconds / conversions[unit]);
+    timeData[unit] = Math.floor(remainingSeconds / conversions[unit]);
     
     if (unit === 'seconds') {
       return;
     }
 
-    let secondsLeftOver = (remainingSeconds - (finalTime[unit] * conversions[unit]));
+    let secondsLeftOver = (remainingSeconds - (timeData[unit] * conversions[unit]));
     
     let nextUnit = Object.keys(conversions)[Object.keys(conversions).indexOf(unit) + 1];
   
@@ -26,7 +37,7 @@ const translateTime = (startingSeconds) => {
 
   calcTime(startingSeconds, 'years');
 
-  return formatString(condenseTime(finalTime));
+  return `${formatString(condenseTime(timeData))}${past ? ' ago' : ''}`;
 }
 
 const checkPlural = (num, unit) => {

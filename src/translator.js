@@ -1,9 +1,10 @@
 const translateTime = (startingSeconds) => {
-  let past = false;
-
+  
   if (startingSeconds === 0) {
     return 'now';
   }
+
+  let past = false;
 
   if (startingSeconds < 0) {
     startingSeconds = Math.abs(startingSeconds);
@@ -28,7 +29,7 @@ const translateTime = (startingSeconds) => {
       return;
     }
 
-    let secondsLeftOver = (remainingSeconds - (timeData[unit] * conversions[unit]));
+    let secondsLeftOver = remainingSeconds - (timeData[unit] * conversions[unit]);
     
     let nextUnit = Object.keys(conversions)[Object.keys(conversions).indexOf(unit) + 1];
   
@@ -64,7 +65,6 @@ const formatString = (list) => {
   let finalPhrase = '';
   
   list.forEach(timePhrase => {
-    console.log(list.indexOf(timePhrase))
     if (list.indexOf(timePhrase) === (list.length - 1)) {
       finalPhrase += timePhrase;
     } else if (list.indexOf(timePhrase) === list.length - 2) {

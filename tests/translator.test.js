@@ -55,7 +55,7 @@ describe('translateTime', () => {
     expect(output).toBe(expected)
   })
 
-  test.skip('it formats day, hours, minutes, and seconds', () => {
+  test.only('it formats day, hours, minutes, and seconds', () => {
     const output = translateTime(266770)
     const expected = "3 days, 2 hours, 6 minutes and 10 seconds"
     expect(output).toBe(expected)
@@ -85,7 +85,7 @@ describe('translateTime', () => {
     expect(output).toBe(expected)
   })
 
-  test.only('it correctly formats mixed times #2', () => {
+  test.skip('it correctly formats mixed times #2', () => {
     const output = translateTime(94611601)
     const expected = "3 years, 1 hour and 1 second"
     expect(output).toBe(expected)

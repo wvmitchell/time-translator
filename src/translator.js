@@ -18,15 +18,13 @@ const translateTime = (startingSeconds) => {
     
     timeData[unit] = Math.floor(remainingSeconds / conversions[unit]);
     
-    if (unit === 'seconds') {
-      return;
-    }
-
-    let secondsLeftOver = remainingSeconds - (timeData[unit] * conversions[unit]);
+    if (unit !== 'seconds') {
+      let secondsLeftOver = remainingSeconds - (timeData[unit] * conversions[unit]);
+      
+      let nextUnit = Object.keys(conversions)[Object.keys(conversions).indexOf(unit) + 1];
     
-    let nextUnit = Object.keys(conversions)[Object.keys(conversions).indexOf(unit) + 1];
-  
-    calcTime(secondsLeftOver, nextUnit);
+      calcTime(secondsLeftOver, nextUnit);
+    }
   }
 
   calcTime(Math.abs(startingSeconds), 'years');

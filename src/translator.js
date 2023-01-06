@@ -4,13 +4,6 @@ const translateTime = (startingSeconds) => {
     return 'now';
   }
 
-  let past = false;
-
-  if (startingSeconds < 0) {
-    startingSeconds = Math.abs(startingSeconds);
-    past = true;
-  }
-
   const conversions = {
     years: 31536000,
     days: 86400,
@@ -36,17 +29,13 @@ const translateTime = (startingSeconds) => {
     calcTime(secondsLeftOver, nextUnit);
   }
 
-  calcTime(startingSeconds, 'years');
+  calcTime(Math.abs(startingSeconds), 'years');
 
-  return `${formatString(condenseTime(timeData))}${past ? ' ago' : ''}`;
+  return `${formatString(condenseTime(timeData))}${startingSeconds < 0 ? ' ago' : ''}`;
 }
 
 const checkPlural = (num, unit) => {
-  if (num === 1) {
-    return `${num} ${unit.slice(0, -1)}`;
-  } else {
-    return `${num} ${unit}`;
-  }
+  return `${num} ${num === 1 ? unit.slice(0, -1) : unit}` 
 }
 
 const condenseTime = (timeData) => {

@@ -19,7 +19,7 @@ const translateTime = (startingSeconds) => {
     timeData[unit] = Math.floor(remainingSeconds / conversions[unit]);
     
     if (unit !== 'seconds') {
-      let secondsLeftOver = remainingSeconds - (timeData[unit] * conversions[unit]);
+      let secondsLeftOver = remainingSeconds % conversions[unit];
       
       let nextUnit = Object.keys(conversions)[Object.keys(conversions).indexOf(unit) + 1];
     
